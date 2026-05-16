@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Arns Enterprises, LLC | Woman-Owned Small Business</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --navy: #0D1B2A;
+    --gold: #C9A84C;
+    --gold-light: #F0D9A0;
+    --cream: #FAF8F3;
+    --white: #FFFFFF;
+    --text: #1A1A2E;
+    --muted: #5A5A72;
+    --border: #E2DDD4;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--text);
+    font-size: 16px;
+    line-height: 1.7;
+  }
+
+  /* NAV */
+  nav {
+    background: var(--navy);
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+
+  .nav-logo {
+    font-family: 'Playfair Display', serif;
+    color: var(--gold);
+    font-size: 1.2rem;
+    letter-spacing: 0.04em;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    color: rgba(255,255,255,0.75);
+    text-decoration: none;
+    font-size: 0.875rem;
+    font-weight: 400;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--gold); }
+
+  /* HERO */
+  .hero {
+    background: var(--navy);
+    color: var(--white);
+    padding: 6rem 2rem 5rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(
+      45deg,
+      transparent,
+      transparent 40px,
+      rgba(201,168,76,0.03) 40px,
+      rgba(201,168,76,0.03) 41px
+    );
+  }
+
+  .hero-badge {
+    display: inline-block;
+    background: rgba(201,168,76,0.15);
+    color: var(--gold-light);
+    border: 1px solid rgba(201,168,76,0.3);
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 0.4rem 1rem;
+    border-radius: 2rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.2rem, 5vw, 3.5rem);
+    font-weight: 600;
+    line-height: 1.2;
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.01em;
+  }
+
+  .hero-sub {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1rem, 2vw, 1.25rem);
+    color: var(--gold);
+    font-style: italic;
+    margin-bottom: 1.5rem;
+  }
+
+  .hero p {
+    max-width: 580px;
+    margin: 0 auto 2.5rem;
+    color: rgba(255,255,255,0.7);
+    font-size: 1.05rem;
+    font-weight: 300;
+  }
+
+  .hero-cta {
+    display: inline-block;
+    background: var(--gold);
+    color: var(--navy);
+    padding: 0.85rem 2.25rem;
+    border-radius: 2px;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.9rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    transition: background 0.2s, transform 0.15s;
+  }
+
+  .hero-cta:hover { background: var(--gold-light); transform: translateY(-1px); }
+
+  /* BADGES ROW */
+  .badges {
+    background: var(--white);
+    border-bottom: 1px solid var(--border);
+    padding: 1.25rem 2rem;
+    display: flex;
+    justify-content: center;
+    gap: 2.5rem;
+    flex-wrap: wrap;
+  }
+
+  .badge-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  .badge-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--gold);
+    flex-shrink: 0;
+  }
+
+  /* SECTIONS */
+  section { padding: 5rem 2rem; }
+
+  .container { max-width: 960px; margin: 0 auto; }
+
+  .section-label {
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.75rem;
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.6rem, 3vw, 2.2rem);
+    font-weight: 600;
+    line-height: 1.25;
+    margin-bottom: 1.25rem;
+    color: var(--navy);
+  }
+
+  .section-body {
+    color: var(--muted);
+    max-width: 600px;
+    font-size: 1.05rem;
+  }
+
+  /* ABOUT */
+  #about { background: var(--white); }
+
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+  }
+
+  .about-accent {
+    border-left: 3px solid var(--gold);
+    padding-left: 1.5rem;
+    margin-top: 2rem;
+  }
+
+  .about-accent p {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.25rem;
+    color: var(--navy);
+    font-style: italic;
+    line-height: 1.5;
+  }
+
+  .about-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+  }
+
+  .stat-card {
+    background: var(--cream);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 1.5rem;
+  }
+
+  .stat-card .stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    color: var(--navy);
+    font-weight: 600;
+    line-height: 1;
+    margin-bottom: 0.25rem;
+  }
+
+  .stat-card .stat-label {
+    font-size: 0.8rem;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+
+  /* CAPABILITIES */
+  #capabilities { background: var(--cream); }
+
+  .cap-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.25rem;
+    margin-top: 3rem;
+  }
+
+  .cap-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 1.75rem 1.5rem;
+    transition: border-color 0.2s, transform 0.2s;
+  }
+
+  .cap-card:hover { border-color: var(--gold); transform: translateY(-2px); }
+
+  .cap-icon {
+    width: 36px;
+    height: 36px;
+    background: rgba(201,168,76,0.12);
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+  }
+
+  .cap-icon svg { width: 18px; height: 18px; stroke: var(--gold); fill: none; stroke-width: 1.75; stroke-linecap: round; stroke-linejoin: round; }
+
+  .cap-card h3 {
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--navy);
+    margin-bottom: 0.4rem;
+  }
+
+  .cap-card p { font-size: 0.85rem; color: var(--muted); line-height: 1.6; }
+
+  /* WHY */
+  #why { background: var(--navy); color: var(--white); }
+
+  #why .section-title { color: var(--white); }
+
+  .why-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.5rem;
+    margin-top: 3rem;
+  }
+
+  .why-card {
+    border: 1px solid rgba(201,168,76,0.2);
+    border-radius: 4px;
+    padding: 1.75rem;
+    transition: border-color 0.2s;
+  }
+
+  .why-card:hover { border-color: rgba(201,168,76,0.5); }
+
+  .why-check {
+    width: 28px;
+    height: 28px;
+    background: rgba(201,168,76,0.15);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+  }
+
+  .why-check svg { width: 14px; height: 14px; stroke: var(--gold); fill: none; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+
+  .why-card h3 { font-size: 0.95rem; font-weight: 500; color: var(--white); margin-bottom: 0.4rem; }
+
+  .why-card p { font-size: 0.85rem; color: rgba(255,255,255,0.55); line-height: 1.6; }
+
+  /* NAICS */
+  #naics { background: var(--white); }
+
+  .naics-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-top: 2rem;
+  }
+
+  .naics-tag {
+    background: var(--cream);
+    border: 1px solid var(--border);
+    border-radius: 2px;
+    padding: 0.5rem 1rem;
+    font-size: 0.8rem;
+    color: var(--navy);
+    font-weight: 500;
+    letter-spacing: 0.02em;
+  }
+
+  .naics-tag span { color: var(--muted); font-weight: 400; margin-left: 0.35rem; }
+
+  /* CONTACT */
+  #contact { background: var(--cream); }
+
+  .contact-box {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 3rem;
+    max-width: 580px;
+    margin-top: 2.5rem;
+  }
+
+  .contact-row {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .contact-row:last-child { border-bottom: none; }
+
+  .contact-icon {
+    width: 36px;
+    height: 36px;
+    background: var(--cream);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .contact-icon svg { width: 16px; height: 16px; stroke: var(--gold); fill: none; stroke-width: 1.75; stroke-linecap: round; stroke-linejoin: round; }
+
+  .contact-label { font-size: 0.75rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 0.15rem; }
+
+  .contact-value { font-size: 0.95rem; color: var(--navy); font-weight: 400; }
+
+  .contact-value a { color: var(--navy); text-decoration: none; }
+  .contact-value a:hover { color: var(--gold); }
+
+  .response-note {
+    margin-top: 1.5rem;
+    font-size: 0.8rem;
+    color: var(--muted);
+    font-style: italic;
+  }
+
+  /* FOOTER */
+  footer {
+    background: var(--navy);
+    color: rgba(255,255,255,0.4);
+    text-align: center;
+    padding: 2rem;
+    font-size: 0.8rem;
+    letter-spacing: 0.04em;
+  }
+
+  footer span { color: var(--gold); }
+
+  /* RESPONSIVE */
+  @media (max-width: 680px) {
+    .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+    .nav-links { display: none; }
+    .badges { gap: 1.25rem; }
+    .contact-box { padding: 2rem 1.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">Arns Enterprises</div>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#capabilities">Capabilities</a></li>
+    <li><a href="#why">Why Us</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<section class="hero">
+  <div class="hero-badge">Woman-Owned Small Business · SAM.gov Registered</div>
+  <h1>Arns Enterprises, LLC</h1>
+  <p class="hero-sub">Delivering Reliable Results Across Every Contract</p>
+  <p>We bridge the gap between government contract requirements and ground-level execution — leveraging a nationwide network of qualified service providers.</p>
+  <a href="#contact" class="hero-cta">Get in Touch</a>
+</section>
+
+<div class="badges">
+  <div class="badge-item"><div class="badge-dot"></div>Woman-Owned Small Business (WOSB)</div>
+  <div class="badge-item"><div class="badge-dot"></div>SAM.gov Registered</div>
+  <div class="badge-item"><div class="badge-dot"></div>Arizona Based · Nationwide Reach</div>
+  <div class="badge-item"><div class="badge-dot"></div>Federal · State · Municipal</div>
+</div>
+
+<section id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div>
+        <p class="section-label">About Us</p>
+        <h2 class="section-title">Contract management you can count on</h2>
+        <p class="section-body">Arns Enterprises, LLC is an Arizona-based woman-owned small business dedicated to delivering reliable contract execution for federal, state, and municipal agencies. We specialize in coordinating facilities, grounds, roofing, janitorial, and real estate leasing services through a nationwide network of qualified subcontractors and vendors.</p>
+        <div class="about-accent">
+          <p>"When agencies need results, we deliver."</p>
+        </div>
+      </div>
+      <div class="about-stats">
+        <div class="stat-card">
+          <div class="stat-num">WOSB</div>
+          <div class="stat-label">Certified Designation</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num">50+</div>
+          <div class="stat-label">States Served</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num">6</div>
+          <div class="stat-label">NAICS Codes</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num">SAM</div>
+          <div class="stat-label">Gov Registered</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="capabilities">
+  <div class="container">
+    <p class="section-label">Core Capabilities</p>
+    <h2 class="section-title">What we deliver</h2>
+    <p class="section-body">From facilities and grounds to roofing, janitorial, and real estate leasing — we coordinate the right people and resources to execute on every contract requirement.</p>
+    <div class="cap-grid">
+
+      <div class="cap-card">
+        <div class="cap-icon">
+          <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        </div>
+        <h3>Facilities & Grounds</h3>
+        <p>Landscaping, grounds maintenance, and exterior upkeep for government facilities nationwide.</p>
+      </div>
+
+      <div class="cap-card">
+        <div class="cap-icon">
+          <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><line x1="12" y1="2" x2="12" y2="22"/></svg>
+        </div>
+        <h3>Roofing & Repair</h3>
+        <p>Building repair and roofing services coordinated through qualified regional contractors.</p>
+      </div>
+
+      <div class="cap-card">
+        <div class="cap-icon">
+          <svg viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/></svg>
+        </div>
+        <h3>Janitorial Services</h3>
+        <p>Custodial and cleaning services for federal buildings, offices, and facilities.</p>
+      </div>
+
+      <div class="cap-card">
+        <div class="cap-icon">
+          <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        </div>
+        <h3>Real Estate Leasing</h3>
+        <p>Identification and coordination of real property leases for government agencies.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="why">
+  <div class="container">
+    <p class="section-label">Why Arns Enterprises</p>
+    <h2 class="section-title">Built for government. Focused on results.</h2>
+    <div class="why-grid">
+
+      <div class="why-card">
+        <div class="why-check">
+          <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+        <h3>WOSB Set-Aside Eligible</h3>
+        <p>Woman-owned and certified — eligible for contracts reserved exclusively for woman-owned small businesses.</p>
+      </div>
+
+      <div class="why-card">
+        <div class="why-check">
+          <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+        <h3>Nationwide Subcontractor Network</h3>
+        <p>Vetted service providers across facilities, roofing, landscaping, janitorial, and more — ready to execute anywhere in the country.</p>
+      </div>
+
+      <div class="why-card">
+        <div class="why-check">
+          <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+        <h3>Documentation Driven</h3>
+        <p>Every step of contract execution is tracked, documented, and audit-ready — giving agencies confidence and compliance peace of mind.</p>
+      </div>
+
+      <div class="why-card">
+        <div class="why-check">
+          <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+        <h3>Agile Small Business</h3>
+        <p>Fast response times, direct communication, and the flexibility to adapt — without the bureaucracy of a large firm.</p>
+      </div>
+
+      <div class="why-card">
+        <div class="why-check">
+          <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+        <h3>Experienced Leadership</h3>
+        <p>Operational, administrative, and governance expertise from executive roles across business, HR, sales, and municipal board service.</p>
+      </div>
+
+      <div class="why-card">
+        <div class="why-check">
+          <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+        <h3>Federal · State · Municipal</h3>
+        <p>Experienced working within and alongside public entities at every level of government.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="naics">
+  <div class="container">
+    <p class="section-label">NAICS Codes</p>
+    <h2 class="section-title">Registered capabilities</h2>
+    <p class="section-body">Arns Enterprises is registered under the following NAICS codes on SAM.gov:</p>
+    <div class="naics-grid">
+      <div class="naics-tag">561730 <span>Landscaping Services</span></div>
+      <div class="naics-tag">238160 <span>Roofing Contractors</span></div>
+      <div class="naics-tag">561720 <span>Janitorial Services</span></div>
+      <div class="naics-tag">531190 <span>Lessors of Other Real Estate</span></div>
+      <div class="naics-tag">541611 <span>Management Consulting</span></div>
+      <div class="naics-tag">561499 <span>General Services</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="container">
+    <p class="section-label">Contact</p>
+    <h2 class="section-title">Let's work together</h2>
+    <p class="section-body">Contracting officers, program managers, and agency representatives are welcome to reach out directly. We respond promptly to all inquiries.</p>
+    <div class="contact-box">
+
+      <div class="contact-row">
+        <div class="contact-icon">
+          <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </div>
+        <div>
+          <div class="contact-label">Email</div>
+          <div class="contact-value"><a href="mailto:tiffanyarns@protonmail.com">tiffanyarns@protonmail.com</a></div>
+        </div>
+      </div>
+
+      <div class="contact-row">
+        <div class="contact-icon">
+          <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        </div>
+        <div>
+          <div class="contact-label">Location</div>
+          <div class="contact-value">Arizona · Nationwide Service</div>
+        </div>
+      </div>
+
+      <div class="contact-row">
+        <div class="contact-icon">
+          <svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/></svg>
+        </div>
+        <div>
+          <div class="contact-label">Business Type</div>
+          <div class="contact-value">Woman-Owned Small Business (WOSB) · SAM.gov Registered</div>
+        </div>
+      </div>
+
+      <p class="response-note">We typically respond within one business day.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2025 <span>Arns Enterprises, LLC</span> · Arizona · All Rights Reserved</p>
+</footer>
+
+</body>
+</html>
